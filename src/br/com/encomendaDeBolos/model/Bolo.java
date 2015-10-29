@@ -13,6 +13,7 @@ public class Bolo {
 	
 	public String getTipoMassa() {
 		return tipoMassa;
+		//olha
 	}
 	public void setTipoMassa(String tipoMassa) {
 		this.tipoMassa = tipoMassa;
