@@ -1,6 +1,6 @@
 package br.com.encomendaDeBolos.controller;
 
-public interface Pagamento {
+public interface PagamentoController {
 	public void realizaPagementoAVista(double valor);
 	public void realizaPagementoCartao(double valor);
 }
