@@ -1,0 +1,68 @@
+package br.com.encomendaDeBolos.view;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JToolBar;
+import javax.swing.JMenuBar;
+import javax.swing.JButton;
+import javax.swing.BoxLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class TelaPrincipal extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			TelaPrincipal dialog = new TelaPrincipal();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public TelaPrincipal() {
+		setTitle("Encomendas De Bolos");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(new GridLayout(1, 0));
+		
+		
+		JPanel panel = new JPanel();
+		contentPanel.add(panel);
+		panel.setLayout(new GridLayout(5, 0, 0, 0));
+		
+		JButton btnCadastrarFuncionario = new JButton("Cadastrar Funcionario");
+		panel.add(btnCadastrarFuncionario);
+		
+		JButton btnCdCliente = new JButton("Cadastrar Cliente");
+		panel.add(btnCdCliente);
+		
+		JButton btnCdIngred = new JButton("Cadastro de Ingrediente");
+		panel.add(btnCdIngred);
+		
+		JButton btnRelatorio = new JButton("Relatorio");
+		panel.add(btnRelatorio);
+		
+		JButton btnSobre = new JButton("Sobre");
+		panel.add(btnSobre);
+	}
+	
+}
