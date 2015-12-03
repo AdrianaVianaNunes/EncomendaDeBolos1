@@ -1,17 +1,13 @@
 package br.com.encomendaDeBolos.view;
 
-import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 public class TelaCadastroCliente extends JDialog {
 
@@ -21,7 +17,7 @@ public class TelaCadastroCliente extends JDialog {
 	public static void main(String[] args) {
 		try {
 			TelaCadastroCliente dialog = new TelaCadastroCliente();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

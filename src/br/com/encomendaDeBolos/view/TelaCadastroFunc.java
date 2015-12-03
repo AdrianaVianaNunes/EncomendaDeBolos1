@@ -2,25 +2,16 @@ package br.com.encomendaDeBolos.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.BoxLayout;
-import java.awt.CardLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.Font;
+import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
 
 public class TelaCadastroFunc extends JDialog {
 
@@ -37,7 +28,7 @@ public class TelaCadastroFunc extends JDialog {
 	public static void main(String[] args) {
 		try {
 			TelaCadastroFunc dialog = new TelaCadastroFunc();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
