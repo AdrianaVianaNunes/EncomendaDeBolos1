@@ -124,6 +124,10 @@ public class TelaCadastroFunc extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
+				JButton btnVoltar = new JButton("Voltar");
+				buttonPane.add(btnVoltar);
+			}
+			{
 				JButton btEnviar = new JButton("Enviar");
 				btEnviar.setActionCommand("OK");
 				buttonPane.add(btEnviar);
