@@ -51,11 +51,11 @@ public class TelaPrincipal extends JDialog {
 		JButton btnCdIngred = new JButton("Cadastro de Ingrediente");
 		panel.add(btnCdIngred);
 		
+		JButton btnEncomenda = new JButton("Encomenda");
+		panel.add(btnEncomenda);
+		
 		JButton btnRelatorio = new JButton("Relatorio");
 		panel.add(btnRelatorio);
-		
-		JButton btnSobre = new JButton("Sobre");
-		panel.add(btnSobre);
 	}
 	
 }
