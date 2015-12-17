@@ -134,7 +134,7 @@ public class TelaBuscaCliente {
 		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setHorizontalAlignment(SwingConstants.RIGHT);
-		frmBuscaDeCliente.getContentPane().add(pa);
+		frmBuscaDeCliente.getContentPane().add(panelListagem);
 		
 		
 		

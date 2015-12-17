@@ -1,17 +1,18 @@
 package br.com.encomendaDeBolos.view;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.FlowLayout;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
-import javax.swing.border.TitledBorder;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.TitledBorder;
+
 
 public class TelaVendaDeBolos {
 
