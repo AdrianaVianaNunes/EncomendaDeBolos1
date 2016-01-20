@@ -66,29 +66,29 @@ public class TelaCadastroCliente extends JDialog {
 			panelNome.setLayout(null);
 			
 			JLabel lblNome = new JLabel("Nome");
-			lblNome.setBounds(10, 41, 27, 14);
+			lblNome.setBounds(10, 41, 46, 14);
 			panelNome.add(lblNome);
 			
 			textFieldNome = new JTextField();
-			textFieldNome.setBounds(63, 38, 361, 20);
+			textFieldNome.setBounds(92, 38, 332, 20);
 			panelNome.add(textFieldNome);
 			textFieldNome.setColumns(50);
 			
 			JLabel lblTelefone = new JLabel("Telefone ");
-			lblTelefone.setBounds(10, 75, 46, 14);
+			lblTelefone.setBounds(10, 75, 72, 14);
 			panelNome.add(lblTelefone);
 			
 			textFieldTelef = new JTextField();
-			textFieldTelef.setBounds(63, 72, 154, 20);
+			textFieldTelef.setBounds(92, 72, 125, 20);
 			panelNome.add(textFieldTelef);
 			textFieldTelef.setColumns(10);
 			
 			JLabel lblDataNascimento = new JLabel("Data Nascimento ");
-			lblDataNascimento.setBounds(227, 75, 84, 14);
+			lblDataNascimento.setBounds(227, 75, 110, 14);
 			panelNome.add(lblDataNascimento);
 			
 			textFielddataNasc = new JTextField();
-			textFielddataNasc.setBounds(321, 72, 103, 20);
+			textFielddataNasc.setBounds(336, 72, 88, 20);
 			panelNome.add(textFielddataNasc);
 			textFielddataNasc.setColumns(10);
 			
@@ -105,7 +105,7 @@ public class TelaCadastroCliente extends JDialog {
 			panelNome.add(textFieldRua);
 			textFieldRua.setColumns(10);
 			
-			JLabel lblNum = new JLabel("Num");
+			JLabel lblNum = new JLabel("N\u00BA");
 			lblNum.setBounds(337, 116, 46, 14);
 			panelNome.add(lblNum);
 			
@@ -124,20 +124,20 @@ public class TelaCadastroCliente extends JDialog {
 			textFieldBairro.setColumns(10);
 			
 			JLabel lblComplemento = new JLabel("Complemento");
-			lblComplemento.setBounds(213, 144, 71, 14);
+			lblComplemento.setBounds(213, 144, 91, 14);
 			panelNome.add(lblComplemento);
 			
 			textFieldComplemento = new JTextField();
-			textFieldComplemento.setBounds(294, 144, 130, 20);
+			textFieldComplemento.setBounds(314, 144, 110, 20);
 			panelNome.add(textFieldComplemento);
 			textFieldComplemento.setColumns(10);
 			
 			JLabel lblFuncionario = new JLabel("Funcionario");
-			lblFuncionario.setBounds(10, 11, 62, 14);
+			lblFuncionario.setBounds(10, 11, 88, 14);
 			panelNome.add(lblFuncionario);
 			
 			JComboBox comboBox = new JComboBox();
-			comboBox.setBounds(82, 7, 97, 20);
+			comboBox.setBounds(108, 7, 93, 20);
 			panelNome.add(comboBox);
 		}
 		{
