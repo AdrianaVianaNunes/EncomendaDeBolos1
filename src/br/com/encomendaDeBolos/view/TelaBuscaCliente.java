@@ -117,7 +117,7 @@ public class TelaBuscaCliente {
 		tabelaBuscaCliente = new JTable();
 		tabelaBuscaCliente.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null},
+				{"Nome", "CPF", "Telefone"},
 				{null, null, null},
 				{null, null, null},
 				{null, null, null},
