@@ -3,11 +3,17 @@ package br.com.encomendaDeBolos.view;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JDialog;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
 
 public class TelaPrincipal extends JDialog {
 
@@ -42,20 +48,42 @@ public class TelaPrincipal extends JDialog {
 		contentPanel.add(panel);
 		panel.setLayout(new GridLayout(5, 0, 0, 0));
 		
-		JButton btnCadastrarFuncionario = new JButton("Cadastrar Funcionario");
-		panel.add(btnCadastrarFuncionario);
+		JMenuBar menuBar = new JMenuBar();
 		
-		JButton btnCdCliente = new JButton("Cadastrar Cliente");
-		panel.add(btnCdCliente);
 		
-		JButton btnCdIngred = new JButton("Cadastro de Ingrediente");
-		panel.add(btnCdIngred);
-		
-		JButton btnEncomenda = new JButton("Encomenda");
-		panel.add(btnEncomenda);
-		
-		JButton btnRelatorio = new JButton("Relatorio");
-		panel.add(btnRelatorio);
+		JMenu cadMenu = new JMenu("Cadastrar");
+        JMenu encMenu = new JMenu("Encomenda");
+        JMenu relMenu = new JMenu("Relatório");
+        
+        menuBar.add(cadMenu);
+        menuBar.add(encMenu);
+        menuBar.add(relMenu);
+        
+        JMenuItem funcAction = new JMenuItem("Funcionário");
+        JMenuItem clieAction = new JMenuItem("Cliente");
+        JMenuItem ingAction = new JMenuItem("Ingrediente");
+        
+              
+        JRadioButtonMenuItem cadAction = new JRadioButtonMenuItem(
+                "Radio Button1");
+        JRadioButtonMenuItem encAction = new JRadioButtonMenuItem(
+                "Radio Button2");
+        JRadioButtonMenuItem relAction = new JRadioButtonMenuItem(
+                "Radio Button1");
+        
+        
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(cadAction);
+        bg.add(encAction);
+        bg.add(relAction);
+        
+        cadMenu.add(funcAction);
+        cadMenu.add(clieAction);
+        cadMenu.add(ingAction);
+        cadMenu.addSeparator();
+         
+        
+  	panel.add(menuBar);
 	}
 	
 }

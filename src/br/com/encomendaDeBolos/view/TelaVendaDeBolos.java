@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
+import java.awt.Color;
 
 
 public class TelaVendaDeBolos {
@@ -113,20 +114,22 @@ public class TelaVendaDeBolos {
 		panel_2.add(comboBox_2);
 
 		JPanel panel_3 = new JPanel();
-		panel_3.setBorder(new TitledBorder(null, "Pagamento",
-				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_3.setBounds(0, 204, 434, 58);
 		frmVendadDeBolos.getContentPane().add(panel_3);
 		panel_3.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
 
-		JButton buttonPagamento = new JButton("Pagamento");
+		JButton buttonPagamento = new JButton("Pagar");
+		buttonPagamento.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panel_3.add(buttonPagamento);
 
 		JButton buttonCancelar = new JButton("Cancelar");
+		buttonCancelar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buttonCancelar.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel_3.add(buttonCancelar);
 
 		JButton buttonVoltar = new JButton("Voltar");
+		buttonVoltar.setForeground(Color.RED);
+		buttonVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panel_3.add(buttonVoltar);
 
 	}

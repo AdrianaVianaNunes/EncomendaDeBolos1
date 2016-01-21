@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import java.awt.Color;
 
 public class TelaCadastroCliente extends JDialog {
 	private JTextField textFieldNome;
 	private JTextField textFieldTelef;
-	private JTextField textFielddataNasc;
 	private JTextField textFieldRua;
 	private JTextField textFieldNum;
 	private JTextField textFieldBairro;
@@ -38,20 +38,22 @@ public class TelaCadastroCliente extends JDialog {
 	 */
 	public TelaCadastroCliente() {
 		setTitle("Cadastro De Cliente");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 485, 378);
 		getContentPane().setLayout(null);
 		{
 			JPanel panelGeral = new JPanel();
-			panelGeral.setBounds(0, 0, 434, 229);
+			panelGeral.setBounds(0, 0, 469, 276);
 			getContentPane().add(panelGeral);
 			panelGeral.setLayout(null);
 			
 			JPanel panelLabelCadastro = new JPanel();
-			panelLabelCadastro.setBounds(0, 0, 434, 41);
+			panelLabelCadastro.setBounds(0, 0, 463, 41);
 			panelGeral.add(panelLabelCadastro);
 			panelLabelCadastro.setLayout(null);
 			
 			JButton btnVoltar = new JButton("Voltar");
+			btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnVoltar.setForeground(Color.RED);
 			btnVoltar.setBounds(10, 13, 72, 23);
 			panelLabelCadastro.add(btnVoltar);
 			
@@ -61,7 +63,7 @@ public class TelaCadastroCliente extends JDialog {
 			panelLabelCadastro.add(lblCadastroDeCleinetes);
 			
 			JPanel panelNome = new JPanel();
-			panelNome.setBounds(0, 43, 434, 186);
+			panelNome.setBounds(0, 43, 463, 231);
 			panelGeral.add(panelNome);
 			panelNome.setLayout(null);
 			
@@ -70,90 +72,113 @@ public class TelaCadastroCliente extends JDialog {
 			panelNome.add(lblNome);
 			
 			textFieldNome = new JTextField();
-			textFieldNome.setBounds(92, 38, 332, 20);
+			textFieldNome.setBounds(57, 38, 367, 20);
 			panelNome.add(textFieldNome);
 			textFieldNome.setColumns(50);
 			
 			JLabel lblTelefone = new JLabel("Telefone ");
-			lblTelefone.setBounds(10, 75, 72, 14);
+			lblTelefone.setBounds(10, 75, 64, 14);
 			panelNome.add(lblTelefone);
 			
 			textFieldTelef = new JTextField();
-			textFieldTelef.setBounds(92, 72, 125, 20);
+			textFieldTelef.setBounds(67, 72, 124, 20);
 			panelNome.add(textFieldTelef);
 			textFieldTelef.setColumns(10);
 			
 			JLabel lblDataNascimento = new JLabel("Data Nascimento ");
-			lblDataNascimento.setBounds(227, 75, 110, 14);
+			lblDataNascimento.setBounds(247, 83, 110, 14);
 			panelNome.add(lblDataNascimento);
 			
-			textFielddataNasc = new JTextField();
-			textFielddataNasc.setBounds(336, 72, 88, 20);
-			panelNome.add(textFielddataNasc);
-			textFielddataNasc.setColumns(10);
-			
 			JLabel lblEndereo = new JLabel("Endere\u00E7o");
-			lblEndereo.setBounds(192, 98, 55, 14);
+			lblEndereo.setFont(new Font("Tahoma", Font.BOLD, 15));
+			lblEndereo.setBounds(10, 129, 103, 30);
 			panelNome.add(lblEndereo);
 			
 			JLabel lblRua = new JLabel("Rua ");
-			lblRua.setBounds(10, 116, 46, 14);
+			lblRua.setBounds(10, 170, 46, 14);
 			panelNome.add(lblRua);
 			
 			textFieldRua = new JTextField();
-			textFieldRua.setBounds(47, 113, 280, 20);
+			textFieldRua.setBounds(57, 167, 280, 20);
 			panelNome.add(textFieldRua);
 			textFieldRua.setColumns(10);
 			
 			JLabel lblNum = new JLabel("N\u00BA");
-			lblNum.setBounds(337, 116, 46, 14);
+			lblNum.setBounds(347, 167, 46, 14);
 			panelNome.add(lblNum);
 			
 			textFieldNum = new JTextField();
-			textFieldNum.setBounds(369, 113, 55, 20);
+			textFieldNum.setBounds(369, 167, 55, 20);
 			panelNome.add(textFieldNum);
 			textFieldNum.setColumns(10);
 			
 			JLabel lblBairro = new JLabel("Bairro");
-			lblBairro.setBounds(10, 141, 46, 14);
+			lblBairro.setBounds(10, 206, 46, 14);
 			panelNome.add(lblBairro);
 			
 			textFieldBairro = new JTextField();
-			textFieldBairro.setBounds(47, 141, 154, 20);
+			textFieldBairro.setBounds(57, 203, 154, 20);
 			panelNome.add(textFieldBairro);
 			textFieldBairro.setColumns(10);
 			
 			JLabel lblComplemento = new JLabel("Complemento");
-			lblComplemento.setBounds(213, 144, 91, 14);
+			lblComplemento.setBounds(221, 206, 91, 14);
 			panelNome.add(lblComplemento);
 			
 			textFieldComplemento = new JTextField();
-			textFieldComplemento.setBounds(314, 144, 110, 20);
+			textFieldComplemento.setBounds(314, 203, 110, 20);
 			panelNome.add(textFieldComplemento);
 			textFieldComplemento.setColumns(10);
 			
-			JLabel lblFuncionario = new JLabel("Funcionario");
-			lblFuncionario.setBounds(10, 11, 88, 14);
+			JLabel lblFuncionario = new JLabel("Funcion\u00E1rio");
+			lblFuncionario.setBounds(10, 11, 80, 14);
 			panelNome.add(lblFuncionario);
 			
 			JComboBox comboBox = new JComboBox();
-			comboBox.setBounds(108, 7, 93, 20);
+			comboBox.setBounds(82, 7, 119, 20);
 			panelNome.add(comboBox);
+			
+			JLabel lblDia = new JLabel("Dia");
+			lblDia.setBounds(247, 108, 46, 14);
+			panelNome.add(lblDia);
+			
+			JComboBox comboBox_1 = new JComboBox();
+			comboBox_1.setBounds(247, 136, 28, 20);
+			panelNome.add(comboBox_1);
+			
+			JLabel lblMs = new JLabel("M\u00EAs");
+			lblMs.setBounds(291, 108, 34, 14);
+			panelNome.add(lblMs);
+			
+			JComboBox comboBox_2 = new JComboBox();
+			comboBox_2.setBounds(284, 136, 28, 20);
+			panelNome.add(comboBox_2);
+			
+			JLabel lblAno = new JLabel("Ano");
+			lblAno.setBounds(332, 108, 46, 14);
+			panelNome.add(lblAno);
+			
+			JComboBox comboBox_3 = new JComboBox();
+			comboBox_3.setBounds(329, 136, 28, 20);
+			panelNome.add(comboBox_3);
 		}
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(0, 229, 434, 33);
+			buttonPane.setBounds(0, 282, 459, 33);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane);
 			
 			JButton btnEditar = new JButton("Editar");
+			btnEditar.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnEditar.setEnabled(false);
 			buttonPane.add(btnEditar);
 			
 			JButton btnSalvar = new JButton("Salvar");
+			btnSalvar.setFont(new Font("Tahoma", Font.BOLD, 11));
 			buttonPane.add(btnSalvar);
 			{
 				JButton cancelButton = new JButton("Cancelar");
+				cancelButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}

@@ -31,7 +31,8 @@ public class TelaBuscaCliente {
 	private JFrame frmBuscaDeCliente;
 	private JTextField textField;
 	private JTable table;
-	private JTable tabelaBuscaCliente;
+	private JTable table_1;
+	private JTable table_2;
 
 	/**
 	 * Launch the application.
@@ -93,50 +94,21 @@ public class TelaBuscaCliente {
 		botaoBuscar.setBounds(388, 53, 83, 23);
 		frmBuscaDeCliente.getContentPane().add(botaoBuscar);
 		
-		JPanel panelListagem = new JPanel();
-		panelListagem.setBounds(0, 82, 488, 169);
-		frmBuscaDeCliente.getContentPane().add(panelListagem);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		GroupLayout gl_panelListagem = new GroupLayout(panelListagem);
-		gl_panelListagem.setHorizontalGroup(
-			gl_panelListagem.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelListagem.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 416, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(62, Short.MAX_VALUE))
-		);
-		gl_panelListagem.setVerticalGroup(
-			gl_panelListagem.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panelListagem.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-					.addContainerGap())
-		);
 		
-		tabelaBuscaCliente = new JTable();
-		tabelaBuscaCliente.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Nome", "CPF", "Telefone"},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-			},
-			new String[] {
+		String []vetColunas = new String[] {
 				"Nome", "CPF", "Telefone"
-			}
-		));
-		scrollPane.setViewportView(tabelaBuscaCliente);
-		scrollPane.setRowHeaderView(tabelaBuscaCliente);
-		panelListagem.setLayout(gl_panelListagem);
+			};
+		String [][]matTabela = new String [3][3]; 
+		
+		table_2 = new JTable(matTabela,vetColunas);
+		table_2.setBounds(28, 129, 443, 102);
+		
+		JScrollPane scroll = new JScrollPane(table_2);
+		scroll.setBounds(28, 129, 443, 102);
 		
 		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setHorizontalAlignment(SwingConstants.RIGHT);
-		frmBuscaDeCliente.getContentPane().add(panelListagem);
-		
-		
+		frmBuscaDeCliente.getContentPane().add(scroll);
 		
 		
 		
