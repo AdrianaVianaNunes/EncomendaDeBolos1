@@ -25,6 +25,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.Color;
 
 public class TelaBuscaCliente {
 
@@ -69,6 +70,8 @@ public class TelaBuscaCliente {
 		frmBuscaDeCliente.getContentPane().setLayout(null);
 		
 		JButton botaoVoltar = new JButton("Voltar");
+		botaoVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+		botaoVoltar.setForeground(Color.RED);
 		botaoVoltar.setBounds(10, 11, 89, 23);
 		frmBuscaDeCliente.getContentPane().add(botaoVoltar);
 		
