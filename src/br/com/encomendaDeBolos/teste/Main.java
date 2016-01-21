@@ -11,7 +11,7 @@ public class Main {
 		p.setNome("teste");
 		p.setSenha("senha");
 		
-		EntityManagerFactory em = Persistence.createEntityManagerFactory("pessoas-mysql");
+		EntityManagerFactory em = Persistence.createEntityManagerFactory("pessoas-postgres");
 		EntityManager mane = em.createEntityManager();
 		
 		mane.getTransaction().begin();
