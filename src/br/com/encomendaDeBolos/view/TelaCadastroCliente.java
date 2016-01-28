@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroCliente extends JDialog {
 	private JTextField textFieldNome;
@@ -52,6 +54,13 @@ public class TelaCadastroCliente extends JDialog {
 			panelLabelCadastro.setLayout(null);
 			
 			JButton btnVoltar = new JButton("Voltar");
+			btnVoltar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaPrincipal principal = new TelaPrincipal();
+					principal.setVisible(true);
+					setVisible(false);
+				}
+			});
 			btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnVoltar.setForeground(Color.RED);
 			btnVoltar.setBounds(10, 13, 72, 23);

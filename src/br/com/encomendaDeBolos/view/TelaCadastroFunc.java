@@ -15,6 +15,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JComboBox;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroFunc extends JDialog {
 
@@ -41,6 +43,7 @@ public class TelaCadastroFunc extends JDialog {
 	 * Create the dialog.
 	 */
 	public TelaCadastroFunc() {
+		setResizable(false);
 		setTitle("Cadastro de Funcionario");
 		setBounds(100, 100, 475, 383);
 		getContentPane().setLayout(new BorderLayout());
@@ -134,6 +137,13 @@ public class TelaCadastroFunc extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton btnVoltar = new JButton("Voltar");
+				btnVoltar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						TelaPrincipal principal = new TelaPrincipal();
+						principal.setVisible(true);
+						setVisible(false);
+					}
+				});
 				btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
 				btnVoltar.setForeground(Color.RED);
 				buttonPane.add(btnVoltar);
