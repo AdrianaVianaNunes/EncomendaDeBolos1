@@ -15,6 +15,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaEncomenda extends JDialog {
 
@@ -52,6 +54,13 @@ public class TelaEncomenda extends JDialog {
 		}
 		{
 			JButton btnVoltar = new JButton("Voltar");
+			btnVoltar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaPrincipal principal = new TelaPrincipal();
+					principal.setVisible(true);
+					setVisible(false);
+				}
+			});
 			btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnVoltar.setForeground(Color.RED);
 			btnVoltar.setBounds(10, 11, 71, 23);
