@@ -10,6 +10,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class TelaPagamento {
 
@@ -116,12 +117,16 @@ public class TelaPagamento {
 		panel_5.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
 		
 		JButton buttonConfirma = new JButton("Confirmar");
+		buttonConfirma.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panel_5.add(buttonConfirma);
 		
 		JButton buttonCancelar = new JButton("Cancelar");
+		buttonCancelar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		panel_5.add(buttonCancelar);
 		
 		JButton buttonVoltar = new JButton("Voltar");
+		buttonVoltar.setForeground(Color.RED);
+		buttonVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buttonVoltar.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel_5.add(buttonVoltar);
 	}

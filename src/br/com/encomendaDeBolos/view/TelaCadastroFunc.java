@@ -12,6 +12,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JComboBox;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCadastroFunc extends JDialog {
 
@@ -20,7 +25,6 @@ public class TelaCadastroFunc extends JDialog {
 	private JLabel lblNome;
 	private JTextField textFieldCpf;
 	private JTextField textFieldCelular;
-	private JTextField textFieldNiver;
 
 	/**
 	 * Launch the application.
@@ -39,8 +43,9 @@ public class TelaCadastroFunc extends JDialog {
 	 * Create the dialog.
 	 */
 	public TelaCadastroFunc() {
+		setResizable(false);
 		setTitle("Cadastro de Funcionario");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 475, 383);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -98,16 +103,32 @@ public class TelaCadastroFunc extends JDialog {
 		}
 		{
 			JPanel panelNiver = new JPanel();
+			panelNiver.setBorder(new TitledBorder(null, "Data de Nascimento", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 			contentPanel.add(panelNiver);
 			panelNiver.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 			{
-				JLabel lblDataNascimento = new JLabel("Data Nascimento");
-				panelNiver.add(lblDataNascimento);
+				JLabel lblDia = new JLabel("Dia");
+				panelNiver.add(lblDia);
 			}
 			{
-				textFieldNiver = new JTextField();
-				panelNiver.add(textFieldNiver);
-				textFieldNiver.setColumns(13);
+				JComboBox comboBox = new JComboBox();
+				panelNiver.add(comboBox);
+			}
+			{
+				JLabel lblMs = new JLabel("M\u00EAs");
+				panelNiver.add(lblMs);
+			}
+			{
+				JComboBox comboBox = new JComboBox();
+				panelNiver.add(comboBox);
+			}
+			{
+				JLabel lblAno = new JLabel("Ano");
+				panelNiver.add(lblAno);
+			}
+			{
+				JComboBox comboBox = new JComboBox();
+				panelNiver.add(comboBox);
 			}
 		}
 		{
@@ -116,16 +137,27 @@ public class TelaCadastroFunc extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton btnVoltar = new JButton("Voltar");
+				btnVoltar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						TelaPrincipal principal = new TelaPrincipal();
+						principal.setVisible(true);
+						setVisible(false);
+					}
+				});
+				btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
+				btnVoltar.setForeground(Color.RED);
 				buttonPane.add(btnVoltar);
 			}
 			{
 				JButton btEnviar = new JButton("Enviar");
+				btEnviar.setFont(new Font("Tahoma", Font.BOLD, 11));
 				btEnviar.setActionCommand("OK");
 				buttonPane.add(btEnviar);
 				getRootPane().setDefaultButton(btEnviar);
 			}
 			{
 				JButton btCancelar = new JButton("Cancelar");
+				btCancelar.setFont(new Font("Tahoma", Font.BOLD, 11));
 				btCancelar.setActionCommand("Cancel");
 				buttonPane.add(btCancelar);
 			}

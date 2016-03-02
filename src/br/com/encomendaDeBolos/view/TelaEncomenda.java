@@ -14,6 +14,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaEncomenda extends JDialog {
 
@@ -51,6 +54,15 @@ public class TelaEncomenda extends JDialog {
 		}
 		{
 			JButton btnVoltar = new JButton("Voltar");
+			btnVoltar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					TelaPrincipal principal = new TelaPrincipal();
+					principal.setVisible(true);
+					setVisible(false);
+				}
+			});
+			btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+			btnVoltar.setForeground(Color.RED);
 			btnVoltar.setBounds(10, 11, 71, 23);
 			contentPanel.add(btnVoltar);
 		}
@@ -73,7 +85,7 @@ public class TelaEncomenda extends JDialog {
 		contentPanel.add(rdbtnMassaBranca);
 		
 		JRadioButton rdbtnMassaDeChocolate = new JRadioButton("Massa de Chocolate");
-		rdbtnMassaDeChocolate.setBounds(0, 111, 121, 23);
+		rdbtnMassaDeChocolate.setBounds(0, 111, 149, 23);
 		contentPanel.add(rdbtnMassaDeChocolate);
 		
 		JLabel lblRecheio = new JLabel("Recheio");
@@ -98,11 +110,11 @@ public class TelaEncomenda extends JDialog {
 		contentPanel.add(chckbxChocolate);
 		
 		JCheckBox chckbxFrutas = new JCheckBox("Frutas");
-		chckbxFrutas.setBounds(151, 189, 57, 23);
+		chckbxFrutas.setBounds(151, 189, 71, 23);
 		contentPanel.add(chckbxFrutas);
 		
 		JComboBox comboBoxFrutas = new JComboBox();
-		comboBoxFrutas.setBounds(214, 193, 82, 20);
+		comboBoxFrutas.setBounds(221, 193, 88, 20);
 		contentPanel.add(comboBoxFrutas);
 		
 		JLabel lblCobertura = new JLabel("Cobertura");
@@ -119,6 +131,7 @@ public class TelaEncomenda extends JDialog {
 		contentPanel.add(rdbtnLeites);
 		
 		JLabel lblObservaesDaCobertura = new JLabel("Observa\u00E7\u00F5es");
+		lblObservaesDaCobertura.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblObservaesDaCobertura.setBounds(329, 137, 99, 14);
 		contentPanel.add(lblObservaesDaCobertura);
 		
@@ -131,12 +144,14 @@ public class TelaEncomenda extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton btnSalvar = new JButton("Salvar");
+				btnSalvar.setFont(new Font("Tahoma", Font.BOLD, 11));
 				btnSalvar.setActionCommand("OK");
 				buttonPane.add(btnSalvar);
 				getRootPane().setDefaultButton(btnSalvar);
 			}
 			{
 				JButton btnCancelar = new JButton("Cancelar");
+				btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 11));
 				btnCancelar.setActionCommand("Cancel");
 				buttonPane.add(btnCancelar);
 			}
