@@ -14,15 +14,15 @@ public class FuncionarioControllerImp implements FuncionarioController {
 		
 		Endereco end = func.getEndereco();
 		
-		EntityManagerFactory em = Persistence
-				.createEntityManagerFactory("encomendaDeBolos-postgres");
+		EntityManagerFactory em = Persistence.createEntityManagerFactory("encomendaDeBolos-postgres");
 		EntityManager mane = em.createEntityManager();
 		
 		mane.getTransaction().begin();
 		
-		mane.persist(func);
+		
 		
 		mane.persist(end);
+		mane.persist(func);
 		
 		mane.getTransaction().commit();
 		

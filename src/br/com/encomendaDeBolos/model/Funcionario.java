@@ -23,7 +23,7 @@ public class Funcionario implements Serializable {
 	private String rg;
 	private String cpf;
 	private String telefone;
-	@OneToOne(mappedBy = "funcionario")
+	@OneToOne(mappedBy = "endereco")
 	private Endereco endereco;
 
 	public Funcionario() {
