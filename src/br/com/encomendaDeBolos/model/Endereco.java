@@ -5,7 +5,11 @@ public class Endereco {
 	private int numero;
 	private String bairro;
 	private String complemento;
-	
+
+	public Endereco() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Endereco(String rua, int numero, String bairro, String complemento) {
 		this.rua = rua;
 		this.numero = numero;

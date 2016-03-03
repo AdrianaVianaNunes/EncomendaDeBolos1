@@ -1,14 +1,37 @@
 package br.com.encomendaDeBolos.model;
 
-public class Funcionario {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+
+@Entity
+public class Funcionario implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2130336222236470988L;
+	@Id
+	@SequenceGenerator(name = "func_seq_gen", sequenceName = "func_seq", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(generator = "func_seq_gen", strategy = GenerationType.SEQUENCE)
 	private Long idFunc;
 	private String nomeFunc;
 	private String rg;
 	private String cpf;
 	private String telefone;
+	@OneToOne(mappedBy = "funcionario")
 	private Endereco endereco;
-	
-	public Funcionario(Long idFunc, String nomeFunc, String rg, String cpf, String telefone, Endereco endereco) {
+
+	public Funcionario() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Funcionario(Long idFunc, String nomeFunc, String rg, String cpf,
+			String telefone, Endereco endereco) {
 		this.idFunc = idFunc;
 		this.nomeFunc = nomeFunc;
 		this.rg = rg;
