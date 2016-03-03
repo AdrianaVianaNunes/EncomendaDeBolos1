@@ -20,9 +20,16 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		</properties>
 	</persistence-unit>
 
-	<persistence-unit name="pessoas-postgres">
+	<persistence-unit name="encomendaDeBolos-postgres">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>br.com.encomendaDeBolos.teste.Pessoa</class>
+		<class>br.com.encomendaDeBolos.model.Bolo</class>
+		<class>br.com.encomendaDeBolos.model.Cliente</class>
+		<class>br.com.encomendaDeBolos.model.Encomenda</class>
+		<class>br.com.encomendaDeBolos.model.Endereco</class>
+		<class>br.com.encomendaDeBolos.model.Funcionario</class>
+		<class>br.com.encomendaDeBolos.model.Ingredientes</class>
+		<class>br.com.encomendaDeBolos.model.Pagamento</class>
+		<class>br.com.encomendaDeBolos.model.Vendas</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/pessoas" />
