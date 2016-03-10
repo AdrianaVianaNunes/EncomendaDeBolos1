@@ -18,6 +18,7 @@ public class Endereco implements Serializable{
 	@Id
 	@SequenceGenerator(name = "end_seq_gen", sequenceName = "end_seq", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(generator = "end_seq_gen", strategy = GenerationType.SEQUENCE)
+	private long id;
 	private String rua;
 	private int numero;
 	private String bairro;
@@ -29,11 +30,28 @@ public class Endereco implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Endereco(String rua, int numero, String bairro, String complemento) {
+	public Endereco(long id,String rua, int numero, String bairro, String complemento) {
+		this.id = id;
 		this.rua = rua;
 		this.numero = numero;
 		this.bairro = bairro;
 		this.complemento = complemento;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 	public String getRua() {

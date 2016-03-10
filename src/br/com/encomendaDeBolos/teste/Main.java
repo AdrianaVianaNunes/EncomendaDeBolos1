@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import br.com.encomendaDeBolos.util.JPAUtil;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,8 +13,8 @@ public class Main {
 		p.setNome("teste");
 		p.setSenha("senha");
 		
-		EntityManagerFactory em = Persistence.createEntityManagerFactory("pessoas-postgres");
-		EntityManager mane = em.createEntityManager();
+		
+		EntityManager mane = new JPAUtil().getEntityManager();
 		
 		mane.getTransaction().begin();
 		mane.persist(p);

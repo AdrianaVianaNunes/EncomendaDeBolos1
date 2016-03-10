@@ -1,8 +1,23 @@
 package br.com.encomendaDeBolos.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Cliente {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+@Entity
+public class Cliente implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7278401765213480046L;
+	@Id
+	@SequenceGenerator(name = "cli_seq_gen", sequenceName = "cli_seq", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(generator = "cli_seq_gen", strategy = GenerationType.SEQUENCE)
 	private int codigo;
 	private String nome;
 	private String telefone;

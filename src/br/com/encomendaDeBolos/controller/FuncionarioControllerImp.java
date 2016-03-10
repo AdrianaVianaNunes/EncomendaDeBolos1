@@ -1,11 +1,14 @@
 package br.com.encomendaDeBolos.controller;
 
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import br.com.encomendaDeBolos.model.Endereco;
 import br.com.encomendaDeBolos.model.Funcionario;
+import br.com.encomendaDeBolos.util.JPAUtil;
+
 
 public class FuncionarioControllerImp implements FuncionarioController {
 
@@ -13,14 +16,12 @@ public class FuncionarioControllerImp implements FuncionarioController {
 	public void inserirFunc(Funcionario func) {
 		
 		Endereco end = func.getEndereco();
-		
-		EntityManagerFactory em = Persistence.createEntityManagerFactory("encomendaDeBolos-postgres");
-		EntityManager mane = em.createEntityManager();
-		
+			
+		EntityManager mane = new JPAUtil().getEntityManager();
+				
 		mane.getTransaction().begin();
-		
-		
-		
+			//end = mane.find(Endereco.class,end.getId());
+				
 		mane.persist(end);
 		mane.persist(func);
 		
