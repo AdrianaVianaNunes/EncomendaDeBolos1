@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -21,8 +22,13 @@ public class Cliente implements Serializable{
 	private int codigo;
 	private String nome;
 	private String telefone;
+	@OneToOne
 	private Endereco endereco;
 	private Date dataNasc;
+	
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Cliente(int codigo, String nome, String telefone, Endereco endereco, Date dataNasc) {
 		this.codigo = codigo;

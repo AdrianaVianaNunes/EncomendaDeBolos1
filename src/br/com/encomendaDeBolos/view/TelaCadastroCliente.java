@@ -1,7 +1,10 @@
 package br.com.encomendaDeBolos.view;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -10,9 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import br.com.encomendaDeBolos.controller.ClienteController;
+import br.com.encomendaDeBolos.controller.ClienteControllerImp;
+import br.com.encomendaDeBolos.model.Cliente;
+import br.com.encomendaDeBolos.model.Endereco;
 
 public class TelaCadastroCliente extends JDialog {
 	private JTextField textFieldNome;
@@ -183,6 +188,11 @@ public class TelaCadastroCliente extends JDialog {
 			buttonPane.add(btnEditar);
 			
 			JButton btnSalvar = new JButton("Salvar");
+			btnSalvar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					salvar();
+				}
+			});
 			btnSalvar.setFont(new Font("Tahoma", Font.BOLD, 11));
 			buttonPane.add(btnSalvar);
 			{
@@ -192,5 +202,22 @@ public class TelaCadastroCliente extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+	}
+	
+	private void salvar() {
+		Cliente cli = new Cliente();
+		Endereco end = new Endereco();
+		cli.setNome(textFieldNome.getText().toString());
+		cli.setTelefone((textFieldTelef.getText().toString()));
+		//cli.setDataNasc(text);
+		ClienteController cliente = new ClienteControllerImp();
+		end.setRua(textFieldRua.getText().toString());
+		end.setNumero(Integer.parseInt(textFieldNum.getText().toString()));
+		end.setBairro(textFieldBairro.getText().toString());
+		end.setComplemento(textFieldComplemento.getText().toString());
+		cli.setEndereco(end);
+		cliente.inserirCliente(cli);
+
+		System.out.println("Salvo com sucesso!!!");
 	}
 }
