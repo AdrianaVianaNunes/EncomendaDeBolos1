@@ -1,58 +1,54 @@
 package br.com.encomendaDeBolos.controller;
 
-
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
+import br.com.encomendaDeBolos.model.Cliente;
 import br.com.encomendaDeBolos.model.Endereco;
-import br.com.encomendaDeBolos.model.Funcionario;
 import br.com.encomendaDeBolos.util.JPAUtil;
 
-
-public class FuncionarioControllerImp implements FuncionarioController {
+public class ClienteControllerImp implements ClienteController{
 
 	@Override
-	public void inserirFunc(Funcionario func) {
+	public void inserirCliente(Cliente cliente) {
 		
-		Endereco end = func.getEndereco();
-			
+		Endereco end = cliente.getEndereco();
+		
 		EntityManager mane = new JPAUtil().getEntityManager();
 				
 		mane.getTransaction().begin();
 			//end = mane.find(Endereco.class,end.getId());
 				
 		mane.persist(end);
-		mane.persist(func);
+		mane.persist(cliente);
 		
 		mane.getTransaction().commit();
 		
 		mane.close();
-
+		
 	}
 
 	@Override
-	public void buscarFunc(Funcionario func) {
+	public void removerCliente(String cpf) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void buscarFunc(String cpf) {
+	public void buscarCliente(Cliente cliente) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void alterarFunc(Funcionario func) {
+	public void buscarCliente(String cpf) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
-	public void removerFunc(String cpf) {
+	public void alterarCliente(Cliente cpf) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

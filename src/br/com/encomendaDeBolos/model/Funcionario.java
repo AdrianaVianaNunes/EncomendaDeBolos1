@@ -18,12 +18,12 @@ public class Funcionario implements Serializable {
 	@Id
 	@SequenceGenerator(name = "func_seq_gen", sequenceName = "func_seq", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(generator = "func_seq_gen", strategy = GenerationType.SEQUENCE)
-	private Long idFunc;
+	private long idFunc;
 	private String nomeFunc;
 	private String rg;
 	private String cpf;
 	private String telefone;
-	@OneToOne(mappedBy = "funcionario")
+	@OneToOne
 	private Endereco endereco;
 
 	public Funcionario() {
