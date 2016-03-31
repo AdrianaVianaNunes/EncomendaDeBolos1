@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -30,6 +31,7 @@ public class TelaCadastroFunc extends JDialog {
 	private JTextField textFieldBairro;
 	private JTextField textFieldComplemento;
 	private JTextField textFieldCpf;
+	
 
 	/**
 	 * Launch the application.
@@ -77,7 +79,7 @@ public class TelaCadastroFunc extends JDialog {
 
 			JLabel lblCadastroDeFuncionario = new JLabel(
 					"Cadastro De Funcionario");
-			lblCadastroDeFuncionario.setBounds(121, 5, 257, 31);
+			lblCadastroDeFuncionario.setBounds(121, 5, 342, 31);
 			lblCadastroDeFuncionario.setFont(new Font("Algerian", Font.PLAIN,
 					23));
 			panelLabelCadastro.add(lblCadastroDeFuncionario);
@@ -88,11 +90,11 @@ public class TelaCadastroFunc extends JDialog {
 			panelNome.setLayout(null);
 
 			JLabel lblNome = new JLabel("Nome");
-			lblNome.setBounds(10, 13, 46, 14);
+			lblNome.setBounds(10, 13, 37, 14);
 			panelNome.add(lblNome);
 
 			textFieldNome = new JTextField();
-			textFieldNome.setBounds(42, 10, 367, 20);
+			textFieldNome.setBounds(46, 10, 363, 20);
 			panelNome.add(textFieldNome);
 			textFieldNome.setColumns(50);
 
@@ -200,6 +202,7 @@ public class TelaCadastroFunc extends JDialog {
 		end.setComplemento(textFieldComplemento.getText().toString());
 		func.setEndereco(end);
 		fc.inserirFunc(func);
+		
         
 		System.out.println("Salvo com sucesso!!!");
 		limparCampos();

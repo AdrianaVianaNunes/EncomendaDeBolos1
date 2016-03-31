@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JDialog;
@@ -14,8 +15,16 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
+
+import com.sun.prism.Image;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.JLabel;
+
+import java.awt.Toolkit;
+import java.text.Normalizer.Form;
 
 public class TelaPrincipal extends JDialog {
 
@@ -38,9 +47,10 @@ public class TelaPrincipal extends JDialog {
 	 * Create the dialog.
 	 */
 	public TelaPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaPrincipal.class.getResource("/br/com/encomendaDeBolos/imagem/capaTrabalho.jpg")));
 		setResizable(false);
 		setTitle("Encomendas De Bolos");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 412);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -49,9 +59,9 @@ public class TelaPrincipal extends JDialog {
 		
 		JPanel panel = new JPanel();
 		contentPanel.add(panel);
-		panel.setLayout(new GridLayout(5, 0, 0, 0));
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 434, 54);
 		
 		
 		JMenu cadMenu = new JMenu("Cadastrar");
@@ -132,6 +142,7 @@ public class TelaPrincipal extends JDialog {
         bg.add(encAction);
         bg.add(relAction);
         bg.add(fecharAction);
+        panel.setLayout(null);
         
         cadMenu.add(funcAction);
         cadMenu.add(clieAction);
@@ -148,6 +159,14 @@ public class TelaPrincipal extends JDialog {
         sairMenu.addSeparator();
         
   	panel.add(menuBar);
+  	
+  	
+  	ImageIcon icon = new ImageIcon("/br/com/encomendaDeBolos/imagem/capaTrabalho1.jpg");
+ 
+  	icon.setImage(icon.getImage().getScaledInstance(100, 100, 200));
+ 	JLabel labelImagem = new JLabel(new ImageIcon(TelaPrincipal.class.getResource("/br/com/encomendaDeBolos/imagem/capaTrabalho.jpg")));
+  	labelImagem.setBounds(0, 56, 434, 324);
+  	
+  	panel.add(labelImagem);
 	}
-	
 }

@@ -168,7 +168,7 @@ public class TelaCadastroCliente extends JDialog {
 			});
 			
 			
-			comboBoxDia.setBounds(247, 136, 28, 20);
+			comboBoxDia.setBounds(247, 136, 46, 20);
 			comboBoxDia.setModel(new DefaultComboBoxModel(new String[] { "1",
 					"2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
 					"13", "14", "15", "16", "17", "18", "19", "20", "21", "22",
@@ -176,7 +176,7 @@ public class TelaCadastroCliente extends JDialog {
 			panelNome.add(comboBoxDia);
 			
 			JLabel lblMs = new JLabel("M\u00EAs");
-			lblMs.setBounds(291, 108, 34, 14);
+			lblMs.setBounds(303, 108, 34, 14);
 			panelNome.add(lblMs);
 			comboBoxMes.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -185,14 +185,14 @@ public class TelaCadastroCliente extends JDialog {
 			});
 			
 			
-			comboBoxMes.setBounds(284, 136, 28, 20);
+			comboBoxMes.setBounds(301, 136, 55, 20);
 			comboBoxMes.setModel(new DefaultComboBoxModel(new String[] { "Jan",
 					"Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set",
 					"Out", "Nov", "Dez" }));
 			panelNome.add(comboBoxMes);
 			
 			JLabel lblAno = new JLabel("Ano");
-			lblAno.setBounds(332, 108, 46, 14);
+			lblAno.setBounds(369, 108, 46, 14);
 			panelNome.add(lblAno);
 			comboBoxAno.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -201,7 +201,7 @@ public class TelaCadastroCliente extends JDialog {
 			});
 			
 			
-			comboBoxAno.setBounds(329, 136, 28, 20);
+			comboBoxAno.setBounds(369, 136, 55, 20);
 			comboBoxAno.setModel(new DefaultComboBoxModel(new String[] {
 					"2016", "2015", "2014", "2013", "2012", "2011", "2010 ",
 					"2009", "2008", "2006     ", "2005 ", "2004 ", "2003",
@@ -238,6 +238,11 @@ public class TelaCadastroCliente extends JDialog {
 			buttonPane.add(btnSalvar);
 			{
 				JButton cancelButton = new JButton("Cancelar");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						limparCampos();
+					}
+				});
 				cancelButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
@@ -270,5 +275,21 @@ public class TelaCadastroCliente extends JDialog {
 		cliente.inserirCliente(cli);
 
 		System.out.println("Salvo com sucesso!!!");
+		limparCampos();
+	}
+	
+public void limparCampos(){
+		
+		textFieldNome.setText("");
+		textFieldTelef.setText("");
+		textFieldRua.setText("");
+		textFieldNum.setText("");
+		textFieldBairro.setText("");
+		textFieldComplemento.setText("");
+		comboBoxDia.setSelectedIndex(0);
+		comboBoxMes.setSelectedIndex(0);
+		comboBoxAno.setSelectedIndex(0);
+		
+		
 	}
 }

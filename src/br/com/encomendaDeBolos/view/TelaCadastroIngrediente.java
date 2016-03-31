@@ -87,10 +87,10 @@ public class TelaCadastroIngrediente extends JDialog {
 		lblQuantidade.setBounds(20, 194, 77, 14);
 		panel.add(lblQuantidade);
 		
-		JTextField textField = new JTextField();
-		textField.setBounds(90, 191, 28, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		JTextField textFieldQtde = new JTextField();
+		textFieldQtde.setBounds(90, 191, 28, 20);
+		panel.add(textFieldQtde);
+		textFieldQtde.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setForeground(Color.BLACK);
@@ -99,6 +99,7 @@ public class TelaCadastroIngrediente extends JDialog {
 		panel.add(btnSalvar);
 		
 		JButton btnEditar = new JButton("Editar");
+		btnEditar.setEnabled(false);
 		btnEditar.setBounds(107, 279, 89, 23);
 		panel.add(btnEditar);
 		
