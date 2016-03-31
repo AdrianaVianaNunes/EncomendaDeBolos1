@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -23,12 +24,12 @@ import br.com.encomendaDeBolos.model.Funcionario;
 public class TelaCadastroFunc extends JDialog {
 
 	private JTextField textFieldNome;
-	private TextField textFieldCpf;
 	private JTextField textFieldTelef;
 	private JTextField textFieldRua;
 	private JTextField textFieldNum;
 	private JTextField textFieldBairro;
 	private JTextField textFieldComplemento;
+	private JTextField textFieldCpf;
 
 	/**
 	 * Launch the application.
@@ -104,10 +105,6 @@ public class TelaCadastroFunc extends JDialog {
 			panelNome.add(textFieldTelef);
 			textFieldTelef.setColumns(10);
 
-			JLabel lblDataNascimento = new JLabel("Data Nascimento ");
-			lblDataNascimento.setBounds(247, 83, 110, 14);
-			panelNome.add(lblDataNascimento);
-
 			JLabel lblEndereo = new JLabel("Endere\u00E7o");
 			lblEndereo.setFont(new Font("Tahoma", Font.BOLD, 15));
 			lblEndereo.setBounds(10, 129, 103, 30);
@@ -152,34 +149,11 @@ public class TelaCadastroFunc extends JDialog {
 			JLabel lblCpf = new JLabel("CPF");
 			lblCpf.setBounds(10, 50, 28, 14);
 			panelNome.add(lblCpf);
-
-			JLabel lblDia = new JLabel("Dia");
-			lblDia.setBounds(247, 108, 46, 14);
-			panelNome.add(lblDia);
-
-			JComboBox comboBox_1 = new JComboBox();
-			comboBox_1.setBounds(247, 136, 28, 20);
-			panelNome.add(comboBox_1);
-
-			JLabel lblMs = new JLabel("M\u00EAs");
-			lblMs.setBounds(291, 108, 34, 14);
-			panelNome.add(lblMs);
-
-			JComboBox comboBox_2 = new JComboBox();
-			comboBox_2.setBounds(284, 136, 28, 20);
-			panelNome.add(comboBox_2);
-
-			JLabel lblAno = new JLabel("Ano");
-			lblAno.setBounds(332, 108, 46, 14);
-			panelNome.add(lblAno);
-
-			JComboBox comboBox_3 = new JComboBox();
-			comboBox_3.setBounds(329, 136, 28, 20);
-			panelNome.add(comboBox_3);
-
-			textFieldCpf = new TextField();
-			textFieldCpf.setBounds(42, 44, 233, 22);
+			
+			textFieldCpf = new JTextField();
+			textFieldCpf.setBounds(42, 44, 171, 20);
 			panelNome.add(textFieldCpf);
+			textFieldCpf.setColumns(10);
 		}
 		{
 			JPanel buttonPane = new JPanel();
@@ -202,6 +176,11 @@ public class TelaCadastroFunc extends JDialog {
 			buttonPane.add(btnSalvar);
 		
 			JButton cancelButton = new JButton("Cancelar");
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					limparCampos();
+				}
+			});
 			cancelButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 			cancelButton.setActionCommand("Cancel");
 			buttonPane.add(cancelButton);
@@ -221,8 +200,21 @@ public class TelaCadastroFunc extends JDialog {
 		end.setComplemento(textFieldComplemento.getText().toString());
 		func.setEndereco(end);
 		fc.inserirFunc(func);
-
+        
 		System.out.println("Salvo com sucesso!!!");
+		limparCampos();
 	}
-
+	
+	public void limparCampos(){
+		
+		textFieldNome.setText("");
+		textFieldCpf.setText("");
+		textFieldTelef.setText("");
+		textFieldRua.setText("");
+		textFieldNum.setText("");
+		textFieldBairro.setText("");
+		textFieldComplemento.setText("");
+		
+		
+	}
 }
