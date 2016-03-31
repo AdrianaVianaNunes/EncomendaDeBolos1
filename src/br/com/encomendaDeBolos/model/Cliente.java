@@ -24,13 +24,13 @@ public class Cliente implements Serializable{
 	private String telefone;
 	@OneToOne
 	private Endereco endereco;
-	private Date dataNasc;
+	private String dataNasc;
 	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Cliente(int codigo, String nome, String telefone, Endereco endereco, Date dataNasc) {
+	public Cliente(int codigo, String nome, String telefone, Endereco endereco, String dataNasc) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.telefone = telefone;
@@ -62,10 +62,10 @@ public class Cliente implements Serializable{
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public Date getDataNasc() {
+	public String getDataNasc() {
 		return dataNasc;
 	}
-	public void setDataNasc(Date dataNasc) {
+	public void setDataNasc(String dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 
