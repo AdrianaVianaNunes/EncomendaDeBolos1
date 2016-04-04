@@ -3,16 +3,13 @@ package br.com.encomendaDeBolos.view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -31,7 +28,9 @@ public class TelaCadastroFunc extends JDialog {
 	private JTextField textFieldBairro;
 	private JTextField textFieldComplemento;
 	private JTextField textFieldCpf;
-	
+
+	private ArrayList<Funcionario> arrayFunc = new ArrayList<>();
+
 
 	/**
 	 * Launch the application.
@@ -202,8 +201,9 @@ public class TelaCadastroFunc extends JDialog {
 		end.setComplemento(textFieldComplemento.getText().toString());
 		func.setEndereco(end);
 		fc.inserirFunc(func);
-		
-        
+
+        arrayFunc.add(func);
+
 		System.out.println("Salvo com sucesso!!!");
 		limparCampos();
 	}
