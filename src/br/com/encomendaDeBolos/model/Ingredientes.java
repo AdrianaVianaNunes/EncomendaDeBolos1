@@ -20,10 +20,14 @@ public class Ingredientes implements Serializable{
 	@GeneratedValue(generator = "ing_seq_gen", strategy = GenerationType.SEQUENCE)
 	private int codIngrediente;
 	private String nomeIngrediente;
-	private Date dataValidadeIngre;
+	private String dataValidadeIngre;
 	private int quantidadeIngre;
+	
+	public Ingredientes() {
+		// TODO Auto-generated constructor stub
+	}
 
-	public Ingredientes(int codIngrediente, String nomeIngrediente, Date dataValidadeIngre, int quantidadeIngre) {
+	public Ingredientes(int codIngrediente, String nomeIngrediente, String dataValidadeIngre, int quantidadeIngre) {
 		this.codIngrediente = codIngrediente;
 		this.nomeIngrediente = nomeIngrediente;
 		this.dataValidadeIngre = dataValidadeIngre;
@@ -46,11 +50,11 @@ public class Ingredientes implements Serializable{
 		this.nomeIngrediente = nomeIngrediente;
 	}
 
-	public Date getDataValidadeIngre() {
+	public String getDataValidadeIngre() {
 		return dataValidadeIngre;
 	}
 
-	public void setDataValidadeIngre(Date dataValidadeIngre) {
+	public void setDataValidadeIngre(String dataValidadeIngre) {
 		this.dataValidadeIngre = dataValidadeIngre;
 	}
 

@@ -2,6 +2,8 @@ package br.com.encomendaDeBolos.controller;
 
 import br.com.encomendaDeBolos.model.Ingredientes;
 
+
+
 public interface IngredienteController {
 	public void inserirIngrediente(Ingredientes ingred);
 	public void removerIngrediente(Ingredientes ingred);

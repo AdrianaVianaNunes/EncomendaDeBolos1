@@ -6,10 +6,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -18,6 +22,7 @@ import br.com.encomendaDeBolos.controller.FuncionarioController;
 import br.com.encomendaDeBolos.controller.FuncionarioControllerImp;
 import br.com.encomendaDeBolos.model.Endereco;
 import br.com.encomendaDeBolos.model.Funcionario;
+import br.com.encomendaDeBolos.util.JPAUtil;
 
 public class TelaCadastroFunc extends JDialog {
 
@@ -28,7 +33,11 @@ public class TelaCadastroFunc extends JDialog {
 	private JTextField textFieldBairro;
 	private JTextField textFieldComplemento;
 	private JTextField textFieldCpf;
-	private ArrayList<Funcionario> arrayFunc = new ArrayList<>();
+	private EntityManager entity;
+	
+
+	private List<Funcionario> arrayFunc = new ArrayList<Funcionario>();
+
 
 	/**
 	 * Launch the application.
@@ -47,6 +56,12 @@ public class TelaCadastroFunc extends JDialog {
 	 * Create the dialog.
 	 */
 	public TelaCadastroFunc() {
+		
+		entity = new JPAUtil().getEntityManager();
+		String consulta = "select f from Funcionario f";
+		TypedQuery<Funcionario> query = entity.createQuery(consulta, Funcionario.class);
+		arrayFunc = query.getResultList();
+		
 		setTitle("Cadastro De Fucionario");
 		setBounds(100, 100, 485, 378);
 		getContentPane().setLayout(null);
@@ -76,7 +91,7 @@ public class TelaCadastroFunc extends JDialog {
 
 			JLabel lblCadastroDeFuncionario = new JLabel(
 					"Cadastro De Funcionario");
-			lblCadastroDeFuncionario.setBounds(121, 5, 257, 31);
+			lblCadastroDeFuncionario.setBounds(121, 5, 342, 31);
 			lblCadastroDeFuncionario.setFont(new Font("Algerian", Font.PLAIN,
 					23));
 			panelLabelCadastro.add(lblCadastroDeFuncionario);
@@ -87,11 +102,11 @@ public class TelaCadastroFunc extends JDialog {
 			panelNome.setLayout(null);
 
 			JLabel lblNome = new JLabel("Nome");
-			lblNome.setBounds(10, 13, 46, 14);
+			lblNome.setBounds(10, 13, 37, 14);
 			panelNome.add(lblNome);
 
 			textFieldNome = new JTextField();
-			textFieldNome.setBounds(42, 10, 367, 20);
+			textFieldNome.setBounds(46, 10, 363, 20);
 			panelNome.add(textFieldNome);
 			textFieldNome.setColumns(50);
 
@@ -199,9 +214,15 @@ public class TelaCadastroFunc extends JDialog {
 		end.setComplemento(textFieldComplemento.getText().toString());
 		func.setEndereco(end);
 		fc.inserirFunc(func);
-        arrayFunc.add(func);
+
+        
+
 		System.out.println("Salvo com sucesso!!!");
 		limparCampos();
+		
+		for (Funcionario f : arrayFunc) {
+			System.out.println(f.getNomeFunc());
+		}
 	}
 	
 	public void limparCampos(){
