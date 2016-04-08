@@ -24,7 +24,12 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.DefaultComboBoxModel;
 
+import br.com.encomendaDeBolos.controller.EncomendaDeBolosController;
+import br.com.encomendaDeBolos.controller.EncomendaDeBolosControllerImp;
+import br.com.encomendaDeBolos.model.Cliente;
 import br.com.encomendaDeBolos.model.Encomendas;
+
+import javax.swing.ButtonGroup;
 
 public class TelaEncomenda extends JDialog {
 
@@ -42,6 +47,8 @@ public class TelaEncomenda extends JDialog {
 	private JTextArea textAreaObs = new JTextArea();
 	private JComboBox comboBoxFrutas = new JComboBox();
 	private String recheio;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	
 
 	/**
@@ -101,13 +108,15 @@ public class TelaEncomenda extends JDialog {
 			contentPanel.add(lblTipoDaMassa);
 		}
 
-		JRadioButton rdbtnMassaBranca = new JRadioButton("Massa Branca");
+		rdbtnMassaBranca = new JRadioButton("Massa Branca");
+		buttonGroup.add(rdbtnMassaBranca);
 	
 		rdbtnMassaBranca.setBounds(0, 90, 109, 23);
 		contentPanel.add(rdbtnMassaBranca);
 
-		JRadioButton rdbtnMassaDeChocolate = new JRadioButton(
+		 rdbtnMassaDeChocolate = new JRadioButton(
 				"Massa de Chocolate");
+		buttonGroup.add(rdbtnMassaDeChocolate);
 		rdbtnMassaDeChocolate.setBounds(0, 111, 149, 23);
 		contentPanel.add(rdbtnMassaDeChocolate);
 
@@ -116,23 +125,23 @@ public class TelaEncomenda extends JDialog {
 		lblRecheio.setBounds(176, 68, 46, 14);
 		contentPanel.add(lblRecheio);
 
-		JCheckBox chckbxLeites = new JCheckBox("4 Leites");
+		chckbxLeites = new JCheckBox("4 Leites");
 		chckbxLeites.setBounds(151, 94, 71, 14);
 		contentPanel.add(chckbxLeites);
 
-		JCheckBox chckbxBeijinho = new JCheckBox("Beijinho");
+	    chckbxBeijinho = new JCheckBox("Beijinho");
 		chckbxBeijinho.setBounds(151, 111, 97, 23);
 		contentPanel.add(chckbxBeijinho);
 
-		JCheckBox chckbxBrigadeiro = new JCheckBox("Brigadeiro");
+	    chckbxBrigadeiro = new JCheckBox("Brigadeiro");
 		chckbxBrigadeiro.setBounds(151, 137, 97, 23);
 		contentPanel.add(chckbxBrigadeiro);
 
-		JCheckBox chckbxChocolate = new JCheckBox("Chocolate");
+	    chckbxChocolate = new JCheckBox("Chocolate");
 		chckbxChocolate.setBounds(151, 163, 97, 23);
 		contentPanel.add(chckbxChocolate);
 
-		JCheckBox chckbxFrutas = new JCheckBox("Frutas");
+	    chckbxFrutas = new JCheckBox("Frutas");
 		chckbxFrutas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				checarFrutas();
@@ -152,11 +161,13 @@ public class TelaEncomenda extends JDialog {
 		lblCobertura.setBounds(319, 69, 71, 14);
 		contentPanel.add(lblCobertura);
 
-		JRadioButton rdbtnBrigadeiro = new JRadioButton("Brigadeiro");
+	    rdbtnBrigadeiro = new JRadioButton("Brigadeiro");
+		buttonGroup_1.add(rdbtnBrigadeiro);
 		rdbtnBrigadeiro.setBounds(319, 90, 109, 23);
 		contentPanel.add(rdbtnBrigadeiro);
 
-		JRadioButton rdbtnLeites = new JRadioButton("4 Leites");
+	    rdbtnLeites = new JRadioButton("4 Leites");
+		buttonGroup_1.add(rdbtnLeites);
 		rdbtnLeites.setBounds(319, 111, 109, 23);
 		contentPanel.add(rdbtnLeites);
 
@@ -205,6 +216,7 @@ public class TelaEncomenda extends JDialog {
 
 	public void salvar() {
 		Encomendas enc = new Encomendas();
+		EncomendaDeBolosController encCon = new EncomendaDeBolosControllerImp();
        
 		if (rdbtnMassaBranca.isSelected() == true) {
 			enc.setTipoMassa("Massa branca");
@@ -242,7 +254,7 @@ public class TelaEncomenda extends JDialog {
 			enc.setCobertura(textAreaObs.getText().toString());
 		}
 		
-		
+		//encCon.realizaEncomenda(cliente, dataEntrega);
 
 	}
 	  public void limparCampos(){

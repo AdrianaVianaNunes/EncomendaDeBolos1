@@ -6,10 +6,14 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -18,6 +22,7 @@ import br.com.encomendaDeBolos.controller.FuncionarioController;
 import br.com.encomendaDeBolos.controller.FuncionarioControllerImp;
 import br.com.encomendaDeBolos.model.Endereco;
 import br.com.encomendaDeBolos.model.Funcionario;
+import br.com.encomendaDeBolos.util.JPAUtil;
 
 public class TelaCadastroFunc extends JDialog {
 
@@ -28,8 +33,10 @@ public class TelaCadastroFunc extends JDialog {
 	private JTextField textFieldBairro;
 	private JTextField textFieldComplemento;
 	private JTextField textFieldCpf;
+	private EntityManager entity;
+	
 
-	private ArrayList<Funcionario> arrayFunc = new ArrayList<>();
+	private List<Funcionario> arrayFunc = new ArrayList<Funcionario>();
 
 
 	/**
@@ -49,6 +56,12 @@ public class TelaCadastroFunc extends JDialog {
 	 * Create the dialog.
 	 */
 	public TelaCadastroFunc() {
+		
+		entity = new JPAUtil().getEntityManager();
+		String consulta = "select f from Funcionario f";
+		TypedQuery<Funcionario> query = entity.createQuery(consulta, Funcionario.class);
+		arrayFunc = query.getResultList();
+		
 		setTitle("Cadastro De Fucionario");
 		setBounds(100, 100, 485, 378);
 		getContentPane().setLayout(null);
@@ -202,10 +215,14 @@ public class TelaCadastroFunc extends JDialog {
 		func.setEndereco(end);
 		fc.inserirFunc(func);
 
-        arrayFunc.add(func);
+        
 
 		System.out.println("Salvo com sucesso!!!");
 		limparCampos();
+		
+		for (Funcionario f : arrayFunc) {
+			System.out.println(f.getNomeFunc());
+		}
 	}
 	
 	public void limparCampos(){
